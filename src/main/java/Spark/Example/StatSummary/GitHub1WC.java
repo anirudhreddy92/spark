@@ -2,6 +2,7 @@
 package Spark.Example.StatSummary;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.io.*;
 
 import org.apache.spark.SparkConf;
@@ -17,8 +18,8 @@ import scala.Tuple2;
 public class GitHub1WC {
 	private static final FlatMapFunction<String, String> WORDS_EXTRACTOR = new FlatMapFunction<String, String>() {
 		
-		public Iterable<String> call(String s) throws Exception {
-			return Arrays.asList(s.split(" "));
+		public Iterator<String> call(String s) throws Exception {
+			return (Iterator<String>) Arrays.asList(s.split(" "));
 		}
 	};
 
